@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Text, View, StyleSheet} from "react-native";
+import {Text, View, StyleSheet, Button} from "react-native";
 import SearchBar from "../component/SearchBar";
 import useResults from "../../hooks/useResults";
 import ResultsList from "../component/ResultsList";
 
-const SearchScreen = () => {
+const SearchScreen = ({navigation}) => {
 
     const [term, setTerm] = useState("");
 
@@ -15,11 +15,11 @@ const SearchScreen = () => {
         <View style={styles.container}>
             <Text>Home Page Of 1st App</Text>
             {error?<Text>{error}</Text>:null}
-            <SearchBar term={term} onTermChange={setTerm} onTermSubmit={()=>searchAPI(term)}/>
-            <Text> We but have received {results.length} Results Sahan</Text>
-            <ResultsList title/>
-            <ResultsList/>
-            <ResultsList/>
+            <SearchBar term={term} onTermChange={newTerm=>setTerm(newTerm)} onTermSubmit={()=>searchAPI(term)}/>
+            {/*<Text> We but have received {results.length} Results Sahan</Text>*/}
+            {/*<ResultsList title/>*/}
+            {/*<ResultsList/>*/}
+            {/*<ResultsList/>*/}
         </View>
     )
 }
