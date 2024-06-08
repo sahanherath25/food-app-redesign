@@ -5,20 +5,20 @@ import {AntDesign, FontAwesome} from "@expo/vector-icons";
 const SearchBar = ({term,onTermChange,onTermSubmit}) => {
 
 
-    const handleSearch = (term) => {
-        onTermChange((prevState) => {
-            console.log(term)
-            return term
-
-        })
-
-    }
+    // const handleSearch = (term) => {
+    //     onTermChange((prevState) => {
+    //         console.log(term)
+    //         return term
+    //
+    //     })
+    //
+    // }
 
     return (
         <View style={styles.background}>
             <AntDesign style={styles.iconStyle} name="search1" size={30} color="black"/>
             <TextInput value={term}
-                       onChangeText={handleSearch}
+                       onChangeText={onTermChange}
                        style={styles.input}
                        placeholder={"Type Your Name"}
                        placeholderTextColor={"#000"}
@@ -41,8 +41,10 @@ const styles = StyleSheet.create(
             borderRadius: 5,
             marginHorizontal: 15,
             flexDirection: "row",
+            // alignItems:"center",
         },
         iconStyle: {
+
             alignSelf: "center",
             fontSize:35,
             marginHorizontal:15,
